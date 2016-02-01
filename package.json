@@ -1,0 +1,24 @@
+{
+  "name": "basic-authentication-with-passport",
+  "version": "1.0.0",
+  "description": "Basic authentication is one of the simplest authentication strategies because it doesn't require cookies, sessions, or even a login form! Instead, it uses HTTP headers which means credentials are transmitted on each request.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hyperkind/Basic-Authentication-with-Passport.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hyperkind/Basic-Authentication-with-Passport/issues"
+  },
+  "homepage": "https://github.com/Hyperkind/Basic-Authentication-with-Passport#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0"
+  }
+}
