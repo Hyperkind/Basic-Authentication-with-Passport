@@ -2,19 +2,19 @@ var express = require('express');
 var passport = require('passport');
 var BasicStrategy = require('passport-http').BasicStrategy;
 
-var PORT = 3000;
+var CONFIG = require('./config');
 
 var app = express();
 
 // middleware
-var user = { username : 'bob', password : 'secret', email : 'bob@example.com'};
+// var user = { username : 'bob', password : 'secret', email : 'bob@example.com'};
 passport.use(new BasicStrategy(
   function (username, password, done) {
     // example authentication strategy using
-    if ( !(username === user.username && password === user.password) ) {
+    if ( !(username === CONFIG.USER.USERNAME && password === CONFIG.USER.PASSWORD) ) {
       return done(null, false);
     }
-    return done(null, user);
+    return done(null, CONFIG);
   }
 ));
 
@@ -22,9 +22,10 @@ passport.use(new BasicStrategy(
 app.get('/secret',
   passport.authenticate('basic', { session : false}),
   function (req, res) {
-    res.json(req.user);
+    res.json(CONFIG.USER);
   });
 
-var server = app.listen(PORT, function () {
-  console.log('Server listening on port', PORT);
+// has server listen
+var server = app.listen(CONFIG.PORT, function () {
+  console.log('Server listening on port', server.address().port);
 });
